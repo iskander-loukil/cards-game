@@ -1,11 +1,12 @@
 package com.cards.game.models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *  Model representing a card
  */
-public class Card {
+public class Card implements Serializable {
 
     private Color color;
     private CardValue cardValue;

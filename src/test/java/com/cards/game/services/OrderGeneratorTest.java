@@ -20,35 +20,28 @@ class OrderGeneratorTest {
     @Autowired
     OrderGenerator orderGenerator;
 
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
-    void generateRandomColorsOrder() {
+    void test_valid_color_generation() {
         List<Color>  randomColorOrder = this.orderGenerator.generateRandomColorsOrder();
         assertEquals(randomColorOrder.size(), GameConstants.NUMBER_OF_COLORS);
         assertEquals(new HashSet<Color>(randomColorOrder).size(), GameConstants.NUMBER_OF_COLORS);
     }
 
     @Test
-    void generateRandomCardValuesOrder() {
+    void test_valid_card_value_generation() {
         List<CardValue>  randomCardValuesOrder = this.orderGenerator.generateRandomCardValuesOrder();
         assertEquals(randomCardValuesOrder.size(), GameConstants.NUMBER_OF_CARD_VALUES);
         assertEquals(new HashSet<CardValue>(randomCardValuesOrder).size(), GameConstants.NUMBER_OF_CARD_VALUES);
     }
 
     @Test
-    void generateCardsOrder() {
+    void test_valid_card_order_generation() {
         CardsOrder cardsOrder = this.orderGenerator.generateCardsOrder();
         assertEquals(cardsOrder.getCardValuesOrder().size(), GameConstants.NUMBER_OF_CARD_VALUES);
         assertEquals(cardsOrder.getColorOrder().size(), GameConstants.NUMBER_OF_COLORS);
         assertEquals(new HashSet<CardValue>(cardsOrder.getCardValuesOrder()).size(), GameConstants.NUMBER_OF_CARD_VALUES);
         assertEquals(new HashSet<Color>(cardsOrder.getColorOrder()).size(), GameConstants.NUMBER_OF_COLORS);
 
-    }
-
-    @Test
-    void getCardsComparator() {
     }
 }
